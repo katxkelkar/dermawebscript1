@@ -40,17 +40,18 @@
   </div>
 </nav>
 <div class="container">
-<div class="containter-fluid vw-70 h-400 bg-danger-subtle p-3 m-3">
+<div class="containter-fluid vw-70 h-400 bg-danger-subtle p-3 m-3" id="avl">
     <input type="file" class="d-none" id="uploadInput" accept="image/*">
     <input type="file" class="d-none" id="cameraInput" accept="image/*" capture="environment">
     <img src="https://cdn-icons-png.flaticon.com/512/6979/6979603.png" alt="" class="img-fluid" id="preview">
+    <canvas id="canvas" class="d-none"></canvas>
     </div>
     <div class="container-fluid d-flex">
 
-    <button class="btn btn-primary w-100 mb-2 me-2" onclick="uploadImage()" id="uploadBtn">
+    <button class="btn btn-primary w-100 mb-2 me-2" id="uploadBtn">
       📤 Upload Image
     </button>
-    <button class="btn btn-success w-100 mb-2 ms-2" onclick="captureImage()" id="captureBtn">
+    <button class="btn btn-success w-100 mb-2 ms-2" id="captureBtn">
       📸 Capture Image
     </button>
     </div>
