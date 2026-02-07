@@ -42,8 +42,8 @@
 <div class="container">
 <div class="containter-fluid vw-70 h-400 bg-danger-subtle p-3 m-3" id="avl">
     <input type="file" class="d-none" id="uploadInput" accept="image/*">
-    <input type="file" class="d-none" id="cameraInput" accept="image/*" capture="environment">
-    <img src="https://cdn-icons-png.flaticon.com/512/6979/6979603.png" alt="" class="img-fluid" id="preview">
+    <video class="image-fluid" id="preview" autoplay playsinline muted></video>
+    <img alt="img" class="img-fluid" id="capturedImg" style="display:none; max-width:100%;">
     <canvas id="canvas" class="d-none"></canvas>
     </div>
     <div class="container-fluid d-flex">
