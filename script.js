@@ -16,6 +16,8 @@ const loadingOverlay=document.getElementById("loadingOverlay")
 const resultsSection=document.getElementById("resultsSection")
 const resultContent=document.getElementById("resultContent")
 const capturedImg=document.getElementById("capturedImg")
+let dataURL=""
+let uploadedFile=null
 
 let stream=null
 let currentImgblob=null
@@ -84,3 +86,31 @@ async function captureImg(){
 
 
 captureBtn.addEventListener("click", captureImg)
+
+retakeBtn.addEventListener("click", async()=> {
+    await captureImg()
+    video.style.display="block"
+    previewImg.style.display="none"
+    captureBtn.style.display="block"
+    afterCaptureControls.style.display="none"
+})
+
+saveBtn.addEventListener("click", ()=>{
+    const link=document.createElement("a")
+    link.href=dataURL
+    link.download="capture-"+Date.now()+".png"
+    link.click()
+    // const blob = dataURLtoBlob(capturedData); 
+    // const formData = new FormData(); 
+    // formData.append("image", blob, filename); 
+    // await fetch(`${SERVER}/upload`, { method: "POST", body: formData });
+    link.remove()
+})
+
+uploadBtn.addEventListener("click", ()=>{
+    console.log(this.files[0])
+    const file=this.files[0]
+    const reader=new FileReader()
+    reader.onload=()=>{previewImg.src=reader.result}
+    reader.readAsDataURL(file)
+})
