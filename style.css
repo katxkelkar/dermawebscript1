@@ -171,3 +171,13 @@ body{
   .hidden {
     display: none !important;
   }
+
+  .banner {
+    background-image:url("https://www.shutterstock.com/image-illustration/abstract-blue-bubble-hyaluronic-acid-600nw-2492672093.jpg");
+    height:60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

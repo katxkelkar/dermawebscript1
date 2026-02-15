@@ -107,10 +107,27 @@ saveBtn.addEventListener("click", ()=>{
     link.remove()
 })
 
-uploadBtn.addEventListener("click", ()=>{
-    console.log(this.files[0])
-    const file=this.files[0]
-    const reader=new FileReader()
-    reader.onload=()=>{previewImg.src=reader.result}
+fileInput.addEventListener("change", ()=>{
+    const file=fileInput.files && fileInput.files[0]
+    if(!file) return
+    if (!file.type.startsWith("image/")){
+        alert("Please Upload a Valid Image")
+        return //technically the "break"
+    }
+
+uploadedFile=file
+dataURL=""
+const reader=new FileReader()
+    reader.onload=(e)=>{previewImg.src=e.target.result;
+        showImageMode()
+        stopCamera()
+    }
     reader.readAsDataURL(file)
+
+})
+
+uploadBtn.addEventListener("click", ()=>{
+    //console.log(this.files[0])
+    fileInput.value="" //resetting the same file so it can be picked again
+    fileInput.click() //opening file dialogue
 })
