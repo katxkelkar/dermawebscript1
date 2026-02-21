@@ -54,7 +54,7 @@ async function captureImg(){
             ctx=canvas.getContext("2d")
             ctx.drawImage(video,0,0,w,h)
             // console.log(video,ctx)
-            const dataURL = canvas.toDataURL("image/png")
+            dataURL = canvas.toDataURL("image/png")
             // console.log(dataURL)
             previewImg.src=dataURL
             showImageMode()
@@ -95,16 +95,38 @@ retakeBtn.addEventListener("click", async()=> {
     afterCaptureControls.style.display="none"
 })
 
-saveBtn.addEventListener("click", ()=>{
+saveBtn.addEventListener("click", async()=>{
+    const src=previewImg.getAttribute("src")
+    if (!src) return
+    try {
+        let blob
+        if (src.startsWith("data:image/")){
+            const response = await fetch (src)
+            blob = await response.blob()
+                }
+        else{
+            const response = await fetch (src)
+            blob = await response.blob()
+        }
+        const downloadURL= URL.createObjectURL(blob); 
+
+    
     const link=document.createElement("a")
-    link.href=dataURL
+    link.href=downloadURL
     link.download="capture-"+Date.now()+".png"
+    document.body.appendChild(link)
     link.click()
     // const blob = dataURLtoBlob(capturedData); 
     // const formData = new FormData(); 
     // formData.append("image", blob, filename); 
     // await fetch(`${SERVER}/upload`, { method: "POST", body: formData });
     link.remove()
+    URL.revokeObjectURL(downloadURL)
+    }
+    catch(err){
+        alert("failed to save image")
+        console.error(err)
+    }
 })
 
 fileInput.addEventListener("change", ()=>{
