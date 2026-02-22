@@ -108,6 +108,7 @@ body{
 
   .btn-primary {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: black;
     border: none;
   }
 
@@ -180,4 +181,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  a.btn-primary{
+    background-color: aqua;
+    color: #000;
+    display: inline-flex;
   }
