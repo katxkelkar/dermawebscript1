@@ -14,7 +14,7 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 
 # ── Configure Gemini ──────────────────────────────────────────────────────────
 #GEMINI_API_KEY = os.environ.get("AIzaSyCPrpl-1tS2ZeL4YzOWJiegzQoA9lEY53c", "")
-GEMINI_API_KEY="AIzaSyCPrpl-1tS2ZeL4YzOWJiegzQoA9lEY53c"
+GEMINI_API_KEY="AIzaSyBBn69DJb5qG8VinpTYCCtC4mj-pzS8qWw"
 if GEMINI_API_KEY:
     print("yes")
 client = genai.Client(api_key=GEMINI_API_KEY)
