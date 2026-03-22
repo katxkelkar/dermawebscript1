@@ -2,7 +2,7 @@ import os, io, base64, re, json
 from datetime import datetime
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import google.generativeai as genai
+from google import genai
 from PIL import Image
 from dotenv import load_dotenv
 load_dotenv()
