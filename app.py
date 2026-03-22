@@ -4,8 +4,6 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from google import genai
 from PIL import Image
-from dotenv import load_dotenv
-load_dotenv()
 
 
 app = Flask(__name__, static_folder=".")
