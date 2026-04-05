@@ -11,7 +11,7 @@
 
 "use strict";
 
-const SERVER = "http://localhost:5000";
+const SERVER = "http://localhost:3000";
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let cameraStream   = null;
@@ -252,7 +252,7 @@ async function saveAndAnalyse(source) {
       body:    JSON.stringify({ image: imageData, save: true }),
     });
 
-    const data = await res.json();
+    const data = await res.json();console.log(data)
     hide(loadingId);
 
     if (!res.ok || !data.success) {

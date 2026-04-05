@@ -9,8 +9,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app        = express();
 const PORT       = process.env.PORT || 3000;
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
-const GEMINI_MODEL   = "gemini-1.5-flash";
+// const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
+const GEMINI_API_KEY = "AIzaSyBeGwRdnSjL4GavB05mX_oFCedEXZZ9mkI"
+const GEMINI_MODEL   = "gemini-2.5-flash";
 const SAVE_DIR       = path.join(__dirname, "saved_images");
 
 if (!existsSync(SAVE_DIR)) mkdirSync(SAVE_DIR);
@@ -58,7 +59,7 @@ app.get("/", (req, res) => {
 });
 
 // ── Gallery endpoint ──────────────────────────────────────────────────────────
-app.get("/gallery", (req, res) => {
+app.get("/gallery", async(req, res) => {
   const { readdirSync } = await import("fs").catch(() => require("fs"));
   try {
     const { readdirSync } = await import("fs");
