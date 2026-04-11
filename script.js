@@ -11,7 +11,7 @@
 
 "use strict";
 
-const SERVER = "http://localhost:3000";
+const SERVER = "https://skinmiracle.onrender.com";
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let cameraStream   = null;
