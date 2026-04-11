@@ -4,7 +4,8 @@ import fetch      from "node-fetch";
 import path       from "path";
 import { fileURLToPath } from "url";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
-require("dotenv").config
+import dotenv from "dotenv"
+dotenv.config()
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app        = express();
