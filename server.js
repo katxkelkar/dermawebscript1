@@ -4,14 +4,15 @@ import fetch      from "node-fetch";
 import path       from "path";
 import { fileURLToPath } from "url";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
+require("dotenv").config
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app        = express();
 const PORT       = process.env.PORT || 3000;
 
 // const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
-const GEMINI_API_KEY = "AIzaSyBeGwRdnSjL4GavB05mX_oFCedEXZZ9mkI"
-const GEMINI_MODEL   = "gemini-2.5-flash";
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY
+const GEMINI_MODEL   = "gemini-1.5-flash";
 const SAVE_DIR       = path.join(__dirname, "saved_images");
 
 if (!existsSync(SAVE_DIR)) mkdirSync(SAVE_DIR);
@@ -145,7 +146,7 @@ app.post("/analyze", async (req, res) => {
     let raw = (
       apiData.candidates?.[0]?.content?.parts?.[0]?.text || ""
     ).trim();
-
+console.log("raw",raw)
     // Strip accidental markdown fences
     raw = raw.replace(/^```[a-zA-Z]*\n?/, "").replace(/\n?```$/, "").trim();
 
