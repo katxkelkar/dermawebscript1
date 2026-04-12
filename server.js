@@ -13,7 +13,7 @@ const PORT       = process.env.PORT || 3000;
 
 // const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-const GEMINI_MODEL   = "gemini-1.5-flash";
+const GEMINI_MODEL   = "gemini-2.5-flash";
 const SAVE_DIR       = path.join(__dirname, "saved_images");
 
 if (!existsSync(SAVE_DIR)) mkdirSync(SAVE_DIR);
