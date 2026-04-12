@@ -7,6 +7,7 @@ import { existsSync, mkdirSync, writeFileSync } from "fs";
 import dotenv from "dotenv"
 dotenv.config()
 console.log("PORT loaded:", process.env.PORT);
+console.log("GEMINI KEY loaded:", !!process.env.GEMINI_API_KEY);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app        = express();
