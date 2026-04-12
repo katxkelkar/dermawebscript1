@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import dotenv from "dotenv"
 dotenv.config()
+console.log("PORT loaded:", process.env.PORT);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app        = express();
