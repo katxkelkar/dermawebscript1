@@ -9,6 +9,8 @@
  *   - Result rendering inside the float
  */
 
+import {signUp, signIn, logOut, getCurrentUser, onAuthChanged} from "../authentication"
+
 "use strict";
 
 const SERVER = "https://skinmiracle.onrender.com";
@@ -17,12 +19,27 @@ const SERVER = "https://skinmiracle.onrender.com";
 let cameraStream   = null;
 let capturedBase64 = null;   // camera capture
 let uploadedBase64 = null;   // file upload
-
+let currentUser = null;
 // ── DOM helpers ───────────────────────────────────────────────────────────────
 const $  = id => document.getElementById(id);
 const show = (id, displayType = "flex") => { $(id).style.display = displayType; };
 const hide = id => { $(id).style.display = "none"; };
 
+onAuthChanged(user => {
+  currentUser = user
+  if (user) {
+    const name = user.displayName || user.email || "you"
+    const initials = name.split(" ").map(i => i[0]).slice(0,2).join("").toUpperCase()
+    $("newAvatar").textContent=initials
+    $("navUserName").textContent=name
+    hide("navAuthButtons")
+    show("navUserInfo","flex")
+  }
+  else{
+    show("navAuthButtons","flex")
+    hide("navUserInfo")
+  }
+})
 // ── On load: health check ─────────────────────────────────────────────────────
 window.addEventListener("DOMContentLoaded", () => {
   checkServer();

@@ -25,6 +25,8 @@ export function onAuthChanged(callback){
 
 export async function signUp(username, email, password, country) {
     const credential=await createUserWithEmailAndPassword(auth, email, password)
+    await updateProfile(credential.user,{displayName:username,countryName:country})
+    return credential.user
 }
 
 export async function signIn(email, password) {
