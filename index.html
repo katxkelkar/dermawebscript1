@@ -52,22 +52,31 @@
       </ul>
 
       <!-- CTA in nav -->
-      <div class="ms-lg-3 mt-2 mt-lg-0">
+       <div class="nav-actions">
+      <div class="ms-lg-3 mt-2 mt-lg-0 nav-auth-btns" id="nav-logIn-btn">
         <button class="btn btn-sm px-3 py-2 rounded-3 fw-semibold text-white"
-                style="background:var(--sage);"
-                onclick="openAnalyser()">
-          <i class="bi bi-search-heart me-1"></i>Analyse Skin
+                style="background:var(--sage);" id="started"
+                >
+          <i class="bi bi-search-heart me-1"></i>Get started
         </button>
         <button class="btn btn-sm px-3 py-2 rounded-3 fw-semibold text-white"
-                style="background:var(--sage);"
-                onclick="openAnalyser()">
-          <i class="bi me-1"></i>Sign up
-        </button>
-          <button class="btn btn-sm px-3 py-2 rounded-3 fw-semibold text-white"
-                style="background:var(--sage);"
-                onclick="openAnalyser()">
+                style="background:var(--sage);" id="logIn"
+                >
           <i class="bi me-1"></i>Log in
         </button>
+        </div>
+        <div class="nav-user" id="nav-user-info" style="display:none">
+          <div class="nav-avatar">
+            <i class="fa-solid fa-user-circle">
+            </i>
+            <span id="nav-user-name">
+              user
+            </span>
+            <button class="btn-ghost small" id="logOut">
+              logOut
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

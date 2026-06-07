@@ -20,10 +20,33 @@ let cameraStream   = null;
 let capturedBase64 = null;   // camera capture
 let uploadedBase64 = null;   // file upload
 let currentUser = null;
+
+
+//dom ref
+const authCard = document.getElementsByClassName("auth-right")
+const started = document.getElementById("started")
+const logIn = document.getElementById("logIn")
+const tab_login = document.getElementById("tab-login")
+const tab_signup = document.getElementById("tab-signup")
+const login_panel = document.getElementById("login-panel")
+const signup_panel = document.getElementById("signup-panel")
+const fname = document.getElementById("su-fname")
+const lname = document.getElementById("su-lname")
+const pass = document.getElementById("su-pass")
+const email = document.getElementById("su-email")
+const li_email = document.getElementById("li-email")
+const li_pass = document.getElementById("li-pass")
+const login_btn = document.getElementById("login-btn")
+const signup_btn = document.getElementById("signup_btn")
 // ── DOM helpers ───────────────────────────────────────────────────────────────
 const $  = id => document.getElementById(id);
 const show = (id, displayType = "flex") => { $(id).style.display = displayType; };
 const hide = id => { $(id).style.display = "none"; };
+
+function openAuth(mode="logIn") {
+  //to open/close floating window
+
+}
 
 onAuthChanged(user => {
   currentUser = user
@@ -62,7 +85,12 @@ async function checkServer() {
 // ═══════════════════════════════════════════════════════════
 //  FLOAT OVERLAY
 // ═══════════════════════════════════════════════════════════
+window.openAnalyser = funtion() {
+  console.log("hello")
+}
+
 function openAnalyser() {
+  console.log("clicked")
   $("floatOverlay").classList.add("open");
   document.body.style.overflow = "hidden";
   goStep("choose");
